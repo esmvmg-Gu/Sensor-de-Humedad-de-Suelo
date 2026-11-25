@@ -1,0 +1,58 @@
+{
+  "organizacion": "Vivamos Mejor",
+  "zona_horaria": "America/Guatemala",
+  "horas_sin_datos": 3,
+
+  "perfiles": {
+    "suelo": {
+      "titulo": "MONITOREO DE SUELO",
+      "variables": [
+        {"clave": "humedad",     "etiqueta": "Humedad del suelo", "columna": "Humedad",     "unidad": "%",     "decimales": 1, "escala": [0, 100],  "optimo": [25, 60],   "alerta": [15, 80]},
+        {"clave": "temperatura", "etiqueta": "Temperatura",       "columna": "Temperatura", "unidad": "°C",    "decimales": 1, "escala": [0, 45],   "optimo": [15, 30],   "alerta": [8, 38]},
+        {"clave": "ce",          "etiqueta": "Conductividad (CE)","columna": "CE",          "unidad": "µS/cm", "decimales": 0, "escala": [0, 3000], "optimo": [10, 1500], "alerta": [0, 2500]},
+        {"clave": "ph",          "etiqueta": "pH",                "columna": "pH",          "unidad": "",      "decimales": 1, "escala": [3, 10],   "optimo": [5.5, 7.0], "alerta": [4.5, 8.0]},
+        {"clave": "n",           "etiqueta": "Nitrógeno (N)",     "columna": "N",           "unidad": "mg/kg", "decimales": 0, "escala": [0, 200],  "optimo": [20, 120],  "alerta": [5, 180]},
+        {"clave": "p",           "etiqueta": "Fósforo (P)",       "columna": "P",           "unidad": "mg/kg", "decimales": 0, "escala": [0, 200],  "optimo": [15, 100],  "alerta": [5, 180]},
+        {"clave": "k",           "etiqueta": "Potasio (K)",       "columna": "K",           "unidad": "mg/kg", "decimales": 0, "escala": [0, 300],  "optimo": [80, 200],  "alerta": [20, 280]},
+        {"clave": "bateria",     "etiqueta": "Batería",           "columna": "Bateria",     "unidad": "V",     "decimales": 2, "escala": [3.0, 4.3],"optimo": [3.7, 4.3], "alerta": [3.4, 4.3]}
+      ]
+    },
+    "termometro": {
+      "titulo": "MONITOREO BIOCLIMÁTICO",
+      "variables": [
+        {"clave": "temperatura", "etiqueta": "Temperatura",      "columna": "Temperatura (°C)",  "unidad": "°C", "decimales": 1, "escala": [0, 40],  "optimo": [12, 28], "alerta": [5, 35]},
+        {"clave": "hr",          "etiqueta": "Humedad relativa", "columna": "HR (%)",            "unidad": "%",  "decimales": 1, "escala": [0, 100], "optimo": [40, 85], "alerta": [25, 97]},
+        {"clave": "rocio",       "etiqueta": "Punto de rocío",   "columna": "Punto de Rocio (°C)","unidad": "°C", "decimales": 1, "escala": [0, 30],  "optimo": [5, 20],  "alerta": [0, 25]}
+      ]
+    }
+  },
+
+  "fuentes": {
+    "drive_termometros": {
+      "tipo": "drive",
+      "drive_file_id": "1Cjv2dA9I_NPKM__rTM9RIgzLYRT-1lU9",
+      "hoja": 0,
+      "columna_estacion": "Estacion",
+      "columna_fecha": "Fecha-Hora (CST)"
+    },
+    "drive_suelo": {
+      "tipo": "drive",
+      "drive_file_id": "PEGA_AQUI_EL_ID_DEL_ARCHIVO_DE_SUELO",
+      "hoja": 0,
+      "columna_estacion": "ID",
+      "columna_fecha": "Fecha"
+    }
+  },
+
+  "estaciones": [
+    {"nombre": "Vivamos Mejor – CEDRACC",   "id": "vvm00001", "equipo": "CWT-SUELO-4G", "perfil": "suelo",      "fuente": "drive_suelo",       "filtro": "vvm00001", "activa": true},
+    {"nombre": "Vivamos Mejor – XESAMPUAL", "id": "vvm00002", "equipo": "CWT-SUELO-4G", "perfil": "suelo",      "fuente": "drive_suelo",       "filtro": "vvm00002", "activa": true},
+    {"nombre": "Cerro Papaa",               "id": "Cerro Papaa", "equipo": "Termómetro", "perfil": "termometro", "fuente": "drive_termometros", "filtro": "Cerro Papaa", "activa": false}
+  ],
+
+  "demo": {
+    "vvm00001": {"fecha": "2026-11-24 22:40:11", "Humedad": 43.8, "Temperatura": 19.6, "CE": 23, "pH": 6.9, "N": 1, "P": 1, "K": 3, "Bateria": 3.95},
+    "vvm00002": {"fecha": "2026-11-24 21:11:28", "Humedad": 12.4, "Temperatura": 21.3, "CE": 310, "pH": 6.2, "N": 45, "P": 28, "K": 120, "Bateria": 3.52},
+    "Cerro Papaa": {"fecha": "2026-11-24 22:15:34", "Temperatura (°C)": 13.8, "HR (%)": 97.0, "Punto de Rocio (°C)": 13.4}
+  }
+}
